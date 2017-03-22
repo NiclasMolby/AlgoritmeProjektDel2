@@ -11,7 +11,7 @@ public class Treesort {
         while(scanner.hasNextInt()) {
             dbt.insert(scanner.nextInt());
         }
-
+        System.out.println();
         for(int i : dbt.orderedTraversal()){
             System.out.println(i);
         }
