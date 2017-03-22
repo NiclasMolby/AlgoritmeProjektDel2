@@ -3,8 +3,8 @@
  */
 public class DictBinTree implements Dict {
 
-    private Node root;
-    private int size;
+    private Node root = null;
+    private int size = 0;
     private int pointer;
     private int[] orderedArray;
 
@@ -13,7 +13,33 @@ public class DictBinTree implements Dict {
     }
 
     public void insert(int k) {
+        Node currentNode = null;
+        Node rootNode = root;
+        Node newNode = new Node();
+        newNode.setKey(k);
+        newNode.setLeftChild(null);
+        newNode.setRightChild(null);
 
+        while(rootNode != null){
+            currentNode = rootNode;
+            if(newNode.getKey() < rootNode.getKey()) {
+                rootNode = rootNode.getLeftChild();
+            }
+            else {
+                rootNode = rootNode.getRightChild();
+            }
+        }
+        if(currentNode == null) {
+            root = newNode;
+        }
+        else if(newNode.getKey() < currentNode.getKey()) {
+            currentNode.setLeftChild(newNode);
+        }
+        else {
+            currentNode.setRightChild(newNode);
+        }
+
+        size++;
     }
 
     public int[] orderedTraversal() {
@@ -27,7 +53,7 @@ public class DictBinTree implements Dict {
     private void inOrderTreeWalk(Node n){
         if(n != null) {
             inOrderTreeWalk(n.getLeftChild());
-            orderedArray[0] = n.getKey();
+            orderedArray[pointer] = n.getKey();
             pointer++;
             inOrderTreeWalk(n.getRightChild());
         }
@@ -44,7 +70,7 @@ public class DictBinTree implements Dict {
             }
         }
 
-        if(current.getKey() == k) {
+        if(current != null && current.getKey() == k) {
             return true;
         }
 
