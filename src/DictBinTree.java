@@ -20,6 +20,9 @@ public class DictBinTree implements Dict {
     }
 
     public boolean search(int k) {
+        Node current = root;
+        while(current != null && current.)
+
         return false;
     }
 }
