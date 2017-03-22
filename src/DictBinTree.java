@@ -6,6 +6,7 @@ public class DictBinTree implements Dict {
     private Node root;
     private int size;
     private int pointer;
+    private int[] orderedArray;
 
     public DictBinTree() {
 
@@ -16,16 +17,18 @@ public class DictBinTree implements Dict {
     }
 
     public int[] orderedTraversal() {
-        int[] orderedArray = new int[size];
+        orderedArray = new int[size];
+        pointer = 0;
+        inOrderTreeWalk(root);
 
-
-        return new int[0];
+        return orderedArray;
     }
 
     private void inOrderTreeWalk(Node n){
         if(n != null) {
             inOrderTreeWalk(n.getLeftChild());
-            System.out.println(n.getKey());
+            orderedArray[0] = n.getKey();
+            pointer++;
             inOrderTreeWalk(n.getRightChild());
         }
     }
