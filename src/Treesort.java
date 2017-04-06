@@ -1,12 +1,15 @@
 import java.util.Scanner;
 
 /**
- * Created by niclasmolby on 22/03/2017.
+ * Medlemmer:
+ * Niclas Schilling Mølby: nicmo15
+ * Jebisan Nadarajah: jenad14
+ * Emil Villefrance: emvil15
  */
 public class Treesort {
 
     public static void main(String args[]){
-        DictBinTree dbt = new DictBinTree();
+        Dict dbt = new DictBinTree();
         Scanner scanner = new Scanner(System.in);
         while(scanner.hasNextInt()) {
             dbt.insert(scanner.nextInt());
